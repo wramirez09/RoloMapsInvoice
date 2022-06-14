@@ -1,23 +1,17 @@
+import React, {createContext, useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Maps from './components/Map/Maps';
+import Form from './components/Form/Form';
+
 
 function App() {
+
+  const [ inputAddress, updateInputAddress ] = useState("1 north state st.");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Maps inputAddress={inputAddress}></Maps>
+      <Form updateInputAddress={updateInputAddress} inputAddress={inputAddress}></Form>
     </div>
   );
 }
