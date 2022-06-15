@@ -5,7 +5,7 @@ const ref = useRef(null);
 const [ map, setMap ] = useState();
 
 const style = {"overflow":"hidden", "position":"static", width:"100%", height:"700px"}
-const [address, setAddress] = useState(null);
+const [address, setAddress] = useState('1 north state street Chicago, IL');
 
 const addressStyles={
   textAlign:"left",
@@ -13,18 +13,12 @@ const addressStyles={
 }
 
 
-useEffect(()=>{
-
-  if(address){
-     
-  }
+useEffect(() => {
   
-    if (ref.current && !map) {
-        setMap(new window.google.maps.Map(ref.current, {center, zoom}));
-      }   
-      
-      
-},[ref, map]);
+  if (ref.current && !map) {
+    setMap(new window.google.maps.Map(ref.current, { center, zoom }));
+  }
+}, [ref, map]);
 
 
 let markers = ()=>{
@@ -48,10 +42,7 @@ let renderAddress = ()=>{
   <p>{address}</p>
   </div>
 }
-
-
-
-  return <>
+return <>
   {markers()}
   {renderAddress()}
   </>
